@@ -1,0 +1,11 @@
+AppBundle\Entity\User:
+    user1:
+        username: john_doe
+        password: Secure123!
+        roles:
+            - 'ROLE_ADMIN'
+    user2:
+        username: jane_doe
+        password: ExampleSecure321!
+        roles:
+            - 'ROLE_ADMIN'

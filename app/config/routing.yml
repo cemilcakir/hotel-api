@@ -1,0 +1,89 @@
+hotels:
+    type: rest
+    resource: AppBundle\Controller\HotelsController
+
+hotels_post:
+    path: /hotels
+    methods: [POST]
+    defaults:
+        _controller: AppBundle\Controller\HotelsController:postHotelsAction
+        _format: json
+
+
+rooms:
+    type: rest
+    resource: AppBundle\Controller\Roomscontroller
+
+rooms_post:
+    path: /rooms
+    methods: [POST]
+    defaults:
+        _controller: AppBundle\Controller\Roomscontroller:postRoomsAction
+        _format: json
+
+
+humans:
+    type: rest
+    resource: AppBundle\Controller\HumansController
+
+humans_post:
+    path: /humans
+    methods: [POST]
+    defaults:
+        _controller: AppBundle\Controller\HumansController:postHumansAction
+        _format: json
+
+users:
+    resource: AppBundle\Controller\UsersController
+    type: rest
+
+users_post:
+    path: /users
+    methods: [POST]
+    defaults:
+        _controller: AppBundle\Controller\UsersController:postUserAction
+        _format: json
+
+bookings:
+    resource: AppBundle\Controller\BookingsController
+    type: rest
+
+bookings_post:
+    path: /bookings
+    methods: [POST]
+    defaults:
+        _controller: AppBundle\Controller\BookingsController:postBookingsAction
+        _format: json
+
+
+users_patch:
+    path: /users/{theUser}
+    methods: [PATCH]
+    defaults:
+        _controller: AppBundle\Controller\UsersController:patchUserAction
+        _format: json
+
+tokens:
+    resource: AppBundle\Controller\TokensController
+    type: rest
+
+images:
+    resource: AppBundle\Controller\ImagesController
+    type: rest
+
+images_post:
+    path: /images
+    methods: [POST]
+    defaults:
+        _controller: AppBundle\Controller\ImagesController:postImagesAction
+        _format: json
+
+images_upload_put:
+    path: /images/{image}/upload
+    methods: [PUT]
+    defaults:
+        _controller: AppBundle\Controller\ImagesController:putImageUploadAction
+
+app.swagger_ui:
+    resource: "@NelmioApiDocBundle/Resources/config/routing/swaggerui.xml"
+    prefix:   /api/doc
