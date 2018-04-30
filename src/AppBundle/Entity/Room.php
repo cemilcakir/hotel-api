@@ -75,11 +75,28 @@ class Room
     private $detail;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="hotelId", type="integer", nullable=true)
+     * @Serializer\Groups({"Default", "Deserialize"})
+     * @Serializer\Expose()
+     */
+    private $hotelId;
+
+    /**
      * @return int
      */
     public function getId(): int
     {
         return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
     }
 
     /**
@@ -145,6 +162,23 @@ class Room
     {
         $this->detail = $detail;
     }
+
+    /**
+     * @return int
+     */
+    public function getHotelId(): int
+    {
+        return $this->hotelId;
+    }
+
+    /**
+     * @param int $hotelId
+     */
+    public function setHotelId(int $hotelId): void
+    {
+        $this->hotelId = $hotelId;
+    }
+
 
 
 }

@@ -65,6 +65,13 @@ class User implements UserInterface
      */
     private $roles;
 
+     /**
+     * @var int
+     * @ORM\Column(name="personId", type="integer", nullable=true)
+     * @Serializer\Groups({"Default", "Deserialize"})
+     */
+     private $personId;
+
     /**
      * @return int
      */
@@ -169,5 +176,21 @@ class User implements UserInterface
     public function setPassword(string $password)
     {
         $this->password = $password;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPersonId(): int
+    {
+        return $this->personId;
+    }
+
+    /**
+     * @param int $personId
+     */
+    public function setPersonId(int $personId)
+    {
+        $this->personId = $personId;
     }
 }

@@ -40,8 +40,7 @@ class Hotel
     /**
      * @var string
      *
-     * @ORM\Column(name="link", type="string", length=255)
-     * @Assert\NotBlank()
+     * @ORM\Column(name="link", type="string", length=255, nullable=true)
      * @Assert\Length(min=1, max=255)
      * @Serializer\Groups({"Default", "Deserialize"})
      * @Serializer\Expose()
@@ -72,8 +71,7 @@ class Hotel
     /**
      * @var string
      *
-     * @ORM\Column(name="mail", type="string", length=255)
-     * @Assert\NotBlank()
+     * @ORM\Column(name="mail", type="string", length=255, nullable=true)
      * @Assert\Length(min=1, max=255)
      * @Serializer\Groups({"Default", "Deserialize"})
      * @Serializer\Expose()
@@ -83,8 +81,7 @@ class Hotel
     /**
      * @var string
      *
-     * @ORM\Column(name="county", type="string", length=70)
-     * @Assert\NotBlank()
+     * @ORM\Column(name="county", type="string", length=70, nullable=true)
      * @Assert\Length(min=1, max=70)
      * @Serializer\Groups({"Default", "Deserialize"})
      * @Serializer\Expose()
@@ -94,8 +91,7 @@ class Hotel
     /**
      * @var string
      *
-     * @ORM\Column(name="province", type="string", length=70)
-     * @Assert\NotBlank()
+     * @ORM\Column(name="province", type="string", length=70, nullable=true)
      * @Assert\Length(min=1, max=70)
      * @Serializer\Groups({"Default", "Deserialize"})
      * @Serializer\Expose()
@@ -105,8 +101,7 @@ class Hotel
     /**
      * @var string
      *
-     * @ORM\Column(name="state", type="string", length=70)
-     * @Assert\NotBlank()
+     * @ORM\Column(name="state", type="string", length=70, nullable=true)
      * @Assert\Length(min=1, max=70)
      * @Serializer\Groups({"Default", "Deserialize"})
      * @Serializer\Expose()
@@ -117,8 +112,7 @@ class Hotel
     /**
      * @var string
      *
-     * @ORM\Column(name="address", type="string", length=255)
-     * @Assert\NotBlank()
+     * @ORM\Column(name="address", type="string", length=255, nullable=true)
      * @Assert\Length(min=1, max=255)
      * @Serializer\Groups({"Default", "Deserialize"})
      * @Serializer\Expose()
@@ -128,8 +122,7 @@ class Hotel
     /**
      * @var string
      *
-     * @ORM\Column(name="detail", type="text")
-     * @Assert\NotBlank()
+     * @ORM\Column(name="detail", type="text", nullable=true)
      * @Assert\Length(min=10, max=5000)
      * @Serializer\Groups({"Default", "Deserialize"})
      * @Serializer\Expose()
@@ -158,6 +151,22 @@ class Hotel
     public function setName(string $name): void
     {
         $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLink(): string
+    {
+        return $this->link;
+    }
+
+    /**
+     * @param string $link
+     */
+    public function setLink(string $link): void
+    {
+        $this->link = $link;
     }
 
     /**
@@ -288,21 +297,6 @@ class Hotel
         $this->detail = $detail;
     }
 
-    /**
-     * @return string
-     */
-    public function getLink(): string
-    {
-        return $this->link;
-    }
-
-    /**
-     * @param string $link
-     */
-    public function setLink(string $link): void
-    {
-        $this->link = $link;
-    }
 
 
 }

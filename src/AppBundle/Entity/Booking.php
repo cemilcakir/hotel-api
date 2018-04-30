@@ -72,7 +72,7 @@ class Booking
     /**
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -80,7 +80,7 @@ class Booking
     /**
      * @return int
      */
-    public function getUserId()
+    public function getUserId(): int
     {
         return $this->userId;
     }
@@ -88,7 +88,7 @@ class Booking
     /**
      * @param int $userId
      */
-    public function setUserId($userId)
+    public function setUserId(int $userId): void
     {
         $this->userId = $userId;
     }
@@ -96,7 +96,7 @@ class Booking
     /**
      * @return int
      */
-    public function getHotelId()
+    public function getHotelId(): int
     {
         return $this->hotelId;
     }
@@ -104,7 +104,7 @@ class Booking
     /**
      * @param int $hotelId
      */
-    public function setHotelId($hotelId)
+    public function setHotelId(int $hotelId): void
     {
         $this->hotelId = $hotelId;
     }
@@ -112,7 +112,7 @@ class Booking
     /**
      * @return int
      */
-    public function getRoomId()
+    public function getRoomId(): int
     {
         return $this->roomId;
     }
@@ -120,7 +120,7 @@ class Booking
     /**
      * @param int $roomId
      */
-    public function setRoomId($roomId)
+    public function setRoomId(int $roomId): void
     {
         $this->roomId = $roomId;
     }
@@ -128,7 +128,7 @@ class Booking
     /**
      * @return \datetime
      */
-    public function getEntranceDate()
+    public function getEntranceDate(): \datetime
     {
         return $this->entranceDate;
     }
@@ -136,7 +136,7 @@ class Booking
     /**
      * @param \datetime $entranceDate
      */
-    public function setEntranceDate($entranceDate)
+    public function setEntranceDate(\datetime $entranceDate): void
     {
         $this->entranceDate = $entranceDate;
     }
@@ -144,7 +144,7 @@ class Booking
     /**
      * @return \datetime
      */
-    public function getLeaveDate()
+    public function getLeaveDate(): \datetime
     {
         return $this->leaveDate;
     }
@@ -152,11 +152,9 @@ class Booking
     /**
      * @param \datetime $leaveDate
      */
-    public function setLeaveDate($leaveDate)
+    public function setLeaveDate(\datetime $leaveDate): void
     {
         $this->leaveDate = $leaveDate;
     }
-
-
 }
 

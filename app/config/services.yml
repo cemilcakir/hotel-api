@@ -39,6 +39,7 @@ services:
 
     AppBundle\DataFixtures\ORM\Processor\UserProcessor:
         tags: [ { name: fidry_alice_data_fixtures.processor } ]
+        
     AppBundle\Repository\PersonRepository:
         factory: ['@doctrine.orm.default_entity_manager', getRepository]
         arguments:

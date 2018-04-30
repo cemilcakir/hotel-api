@@ -26,11 +26,12 @@ class BookingsController extends  AbstractController
 
     /**
      * @Rest\View()
-     * @ParamConverter("hotel",converter="fos_rest.request_body")
+     * @ParamConverter("booking",converter="fos_rest.request_body")
      * @Rest\NoRoute()
      */
     public function postBookingsAction(Booking $booking, ConstraintViolationListInterface $validationErrors)
     {
+        dump($booking);die;
         if (count($validationErrors)){
             throw new ValidationException($validationErrors);
         }

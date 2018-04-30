@@ -11,6 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class HumansController extends  AbstractController
 {
@@ -28,23 +29,21 @@ class HumansController extends  AbstractController
 
     /**
      * @Rest\View(statusCode=201)
-     * @ParamConverter("person",converter="fos_rest.request_body")
+     * @ParamConverter("person", converter="fos_rest.request_body")
      * @Rest\NoRoute()
      */
-    public function postHumansAction(Person $person, ConstraintViolationListInterface $validationErrors
-    ) {
+    public function postHumansAction(Person $person, ConstraintViolationListInterface $validationErrors)
+    {
         if (count($validationErrors) > 0) {
             throw new ValidationException($validationErrors);
         }
 
-        $em = $this->getDoctrine()
-            ->getManager();
+        $em = $this->getDoctrine()->getManager();
         $em->persist($person);
         $em->flush();
 
         return $person;
     }
-
 
     /**
      * @Rest\View()
@@ -62,14 +61,13 @@ class HumansController extends  AbstractController
 
     /**
      * @Rest\View()
-     *
      */
-    public function getHumanAction(Person $person){
+    public function getHumanAction(Person $thePerson){
 
-        if(null == $person){
+        if(null == $thePerson){
             return $this->view(null,404);
         }
 
-        return $person;
+        return $thePerson;
     }
 }

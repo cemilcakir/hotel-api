@@ -12,7 +12,6 @@ use JMS\Serializer\Annotation as Serializer;
  *
  * @ORM\Table(name="person")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PersonRepository")
- * @UniqueEntity("username", groups={"Default", "Patch"})
  * @Serializer\ExclusionPolicy("ALL")
  */
 class Person
@@ -31,7 +30,8 @@ class Person
     /**
      * @var string
      *
-     * @ORM\Column(name="kullaniciTC", type="string", unique=true)
+     * @Assert\NotBlank()
+     * @ORM\Column(name="kullaniciTC", type="string")
      * @Serializer\Groups({"Default", "Deserialize"})
      * @Serializer\Expose()
      */
@@ -84,101 +84,92 @@ class Person
     private $mail;
 
     /**
-     * Get id
+     * @var int
      *
+     * @ORM\Column(name="userId", type="integer", nullable=true)
+     * @Serializer\Groups({"Default", "Deserialize"})
+     * @Serializer\Expose()
+    */
+    private $userId;
+
+    /**
      * @return int
      */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
     /**
-     * Set firstName
-     *
-     * @param string $firstName
-     *
-     * @return Person
+     * @param int $id
      */
-    public function setFirstName($firstName)
+    public function setId(int $id): void
     {
-        $this->firstName = $firstName;
-
-        return $this;
+        $this->id = $id;
     }
 
     /**
-     * Get firstName
-     *
      * @return string
      */
-    public function getFirstName()
-    {
-        return $this->firstName;
-    }
-
-    /**
-     * Set lastName
-     *
-     * @param string $lastName
-     *
-     * @return Person
-     */
-    public function setLastName($lastName)
-    {
-        $this->lastName = $lastName;
-
-        return $this;
-    }
-
-    /**
-     * Get lastName
-     *
-     * @return string
-     */
-    public function getLastName()
-    {
-        return $this->lastName;
-    }
-
-    /**
-     * Set dateOfBirth
-     *
-     * @param \DateTime $dateOfBirth
-     *
-     * @return Person
-     */
-    public function setDateOfBirth($dateOfBirth)
-    {
-        $this->dateOfBirth = $dateOfBirth;
-
-        return $this;
-    }
-
-    /**
-     * Get dateOfBirth
-     *
-     * @return \DateTime
-     */
-    public function getDateOfBirth()
-    {
-        return $this->dateOfBirth;
-    }
-
-    /**
-     * @return int
-     */
-    public function getKullaniciTC(): int
+    public function getKullaniciTC(): string
     {
         return $this->kullaniciTC;
     }
 
     /**
-     * @param int $kullaniciTC
+     * @param string $kullaniciTC
      */
-    public function setKullaniciTC(int $kullaniciTC): void
+    public function setKullaniciTC(string $kullaniciTC): void
     {
         $this->kullaniciTC = $kullaniciTC;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFirstName(): string
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * @param string $firstName
+     */
+    public function setFirstName(string $firstName): void
+    {
+        $this->firstName = $firstName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastName(): string
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * @param string $lastName
+     */
+    public function setLastName(string $lastName): void
+    {
+        $this->lastName = $lastName;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateOfBirth(): \DateTime
+    {
+        return $this->dateOfBirth;
+    }
+
+    /**
+     * @param \DateTime $dateOfBirth
+     */
+    public function setDateOfBirth(\DateTime $dateOfBirth): void
+    {
+        $this->dateOfBirth = $dateOfBirth;
     }
 
     /**
@@ -196,5 +187,23 @@ class Person
     {
         $this->mail = $mail;
     }
+
+    /**
+     * @return int
+     */
+    public function getUserId(): int
+    {
+        return $this->userId;
+    }
+
+    /**
+     * @param int $userId
+     */
+    public function setUserId(int $userId): void
+    {
+        $this->userId = $userId;
+    }
+
+
 }
 

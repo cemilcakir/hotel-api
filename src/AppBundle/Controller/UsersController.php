@@ -61,7 +61,7 @@ class UsersController extends AbstractController
      * @Rest\View()
      * @Security("is_granted('show', theUser)", message="Access denied")
      */
-    public function getUserAction(User $theUser)
+    public function getUserAction(?User $theUser)
     {
         if (null === $theUser) {
             throw new NotFoundHttpException();

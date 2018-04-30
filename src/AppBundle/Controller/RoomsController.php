@@ -68,3 +68,4 @@ class RoomsController extends AbstractController{
         return $room;
     }
 }
+
