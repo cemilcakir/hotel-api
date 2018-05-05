@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as Serializer;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Image
@@ -26,10 +27,31 @@ class Image
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text", nullable=true)
+     * @ORM\Column(name="description", type="text", nullable=false)
+     * @Assert\NotBlank()
      * @Serializer\Groups({"Default", "Deserialize"})
      */
     private $description;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="hotelId", type="integer",nullable=false)
+     * @Assert\NotBlank()
+     * @Serializer\Groups({"Default", "Deserialize"})
+     * @Serializer\Expose()
+    */
+    private $hotelId;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="roomId", type="integer",nullable=false)
+     * @Assert\NotBlank()
+     * @Serializer\Groups({"Default", "Deserialize"})
+     * @Serializer\Expose()
+    */
+    private $roomId;
 
     /**
      * @var string
@@ -72,6 +94,38 @@ class Image
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * @return int
+     */
+    public function getHotelId(): int
+    {
+        return $this->hotelId;
+    }
+
+    /**
+     * @param int $hotelId
+     */
+    public function setHotelId(int $hotelId): void
+    {
+        $this->hotelId = $hotelId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRoomId(): int
+    {
+        return $this->roomId;
+    }
+
+    /**
+     * @param int $roomId
+     */
+    public function setRoomId(int $roomId): void
+    {
+        $this->roomId = $roomId;
     }
 
     /**

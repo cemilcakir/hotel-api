@@ -54,7 +54,9 @@ class Booking
     private $roomId;
 
     /**
-     * @var \datetime
+     * @var \DateTime
+     * @Assert\Date()
+     * @Serializer\Type("DateTime<'Y-m-d'>")
      * @ORM\Column(name="entranceDate", type="date")
      * @Serializer\Groups({"Default", "Deserialize"})
      * @Serializer\Expose()
@@ -62,7 +64,9 @@ class Booking
     private $entranceDate;
 
     /**
-     * @var \datetime
+     * @var \DateTime
+     * @Assert\Date()
+     * @Serializer\Type("DateTime<'Y-m-d'>")
      * @ORM\Column(name="leaveDate", type="date")
      * @Serializer\Groups({"Default", "Deserialize"})
      * @Serializer\Expose()

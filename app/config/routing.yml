@@ -9,6 +9,12 @@ hotels_post:
         _controller: AppBundle\Controller\HotelsController:postHotelsAction
         _format: json
 
+hotels_patch:
+    path: /hotels/{theHotel}
+    methods: [PATCH]
+    defaults:
+        _controller: AppBundle\Controller\HotelsController:patchHotelsAction
+        _format: json
 
 rooms:
     type: rest
@@ -21,6 +27,12 @@ rooms_post:
         _controller: AppBundle\Controller\Roomscontroller:postRoomsAction
         _format: json
 
+rooms_patch:
+    path: /rooms/{theRoom}
+    methods: [PATCH]
+    defaults:
+        _controller: AppBundle\Controller\RoomsController:patchRoomsAction
+        _format: json
 
 humans:
     type: rest
@@ -31,6 +43,13 @@ humans_post:
     methods: [POST]
     defaults:
         _controller: AppBundle\Controller\HumansController:postHumansAction
+        _format: json
+
+humans_patch:
+    path: /humans/{thePerson}
+    methods: [PATCH]
+    defaults:
+        _controller: AppBundle\Controller\HumansController:patchHumansAction
         _format: json
 
 users:

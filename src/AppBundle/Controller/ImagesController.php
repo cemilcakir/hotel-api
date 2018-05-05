@@ -130,6 +130,20 @@ class ImagesController extends AbstractController
     }
 
     /**
+     * @Rest\View()
+     */
+    public function deleteImageAction(Image $image)
+    {
+        if(null == $image){
+            return $this->view(null,404);
+        }
+
+        $em=$this->getDoctrine()->getManager();
+        $em->remove($image);
+        $em->flush();
+    }
+
+    /**
      * @param Image|null $image
      */
     protected function persistImage(Image $image): void

@@ -31,7 +31,6 @@ class BookingsController extends  AbstractController
      */
     public function postBookingsAction(Booking $booking, ConstraintViolationListInterface $validationErrors)
     {
-        dump($booking);die;
         if (count($validationErrors)){
             throw new ValidationException($validationErrors);
         }
