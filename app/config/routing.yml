@@ -101,4 +101,8 @@ images_upload_put:
     path: /images/{image}/upload
     methods: [PUT]
     defaults:
+
         _controller: AppBundle\Controller\ImagesController:putImageUploadAction
+Ililce:
+    type: rest
+    resource: AppBundle\Controller\IlilceController

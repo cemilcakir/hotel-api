@@ -41,6 +41,15 @@ class RoomsController extends AbstractController{
 
     /**
      * @Rest\View()
+     */
+    public function getHotelRoomsAction($hotelId)
+    {
+        $em = $this->getDoctrine()->getRepository('AppBundle:Room')->findBy(array('hotelId' => $hotelId));
+        return $em;
+    }
+
+    /**
+     * @Rest\View()
      * @ParamConverter("room",converter="fos_rest.request_body")
      * @Rest\NoRoute()
      */
