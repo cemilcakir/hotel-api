@@ -28,8 +28,6 @@ class AppKernel extends Kernel
 
             new \FOS\HttpCacheBundle\FOSHttpCacheBundle(),
 
-            new \Nelmio\ApiDocBundle\NelmioApiDocBundle(),
-
             new \Snc\RedisBundle\SncRedisBundle(),
 
             new AppBundle\AppBundle(),

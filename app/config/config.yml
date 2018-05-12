@@ -161,25 +161,3 @@ fos_http_cache:
                         s_maxage: 1
                     vary: [X-Accept-Version, Accept]
                     etag: false
-
-nelmio_api_doc:
-    routes:
-        path_patterns:
-            - ^/hotel
-            - ^/human
-            - ^/user   
-            - ^/room 
-    models:
-        use_jms: true
-    documentation:
-        info:
-            title: "Hotel API"
-            description: "Hotel database API"
-            version: 1.0.0
-        parameters:
-            param_movie_id:
-                name: Hotel
-                in: path
-                type: integer
-                description: "Hotel id"
-                required: true
