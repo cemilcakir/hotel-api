@@ -46,7 +46,7 @@ class Image
     /**
      * @var int
      *
-     * @ORM\Column(name="roomId", type="integer",nullable=false)
+     * @ORM\Column(name="roomId", type="integer",nullable=true)
      * @Assert\NotBlank()
      * @Serializer\Groups({"Default", "Deserialize"})
      * @Serializer\Expose()

@@ -64,6 +64,26 @@ class Room
     private $floor;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="size", type="integer")
+     * @Assert\NotBlank()
+     * @Serializer\Groups({"Default", "Deserialize"})
+     * @Serializer\Expose()
+     */
+    private $size;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="capacity", type="integer")
+     * @Assert\NotBlank()
+     * @Serializer\Groups({"Default", "Deserialize"})
+     * @Serializer\Expose()
+     */
+    private $capacity;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="detail", type="text")

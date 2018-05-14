@@ -53,6 +53,24 @@ class ImagesController extends AbstractController
     }
 
     /**
+     * @Rest\View()
+     */
+    public function getHotelImagesAction($hotelId)
+    {
+        $em = $this->getDoctrine()->getRepository('AppBundle:Image')->findBy(array('hotelId' => $hotelId));
+        return $em;
+    }
+
+    /**
+     * @Rest\View()
+     */
+    public function getRoomImagesAction($roomId)
+    {
+        $em = $this->getDoctrine()->getRepository('AppBundle:Image')->findBy(array('roomId' => $roomId));
+        return $em;
+    }
+
+    /**
      * @Rest\NoRoute()
      * @ParamConverter("image", converter="fos_rest.request_body",
      *     options={"deserializationContext"={"groups"={"Deserialize"}}})
