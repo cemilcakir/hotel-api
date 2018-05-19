@@ -116,6 +116,15 @@ class HumansController extends  AbstractController
     }
 
     /**
+     * @Rest\View()
+     */
+    public function getUserIdAction($mail){
+
+        $em = $this->getDoctrine()->getRepository('AppBundle:Person')->findBy(array('mail' => $mail));
+        return $em;
+    }
+
+    /**
      * @param Person $person
      */
     protected function persistPerson(Person $person): void
