@@ -66,7 +66,7 @@ class UsersController extends AbstractController
         if (null === $theUser) {
             throw new NotFoundHttpException();
         }
-
+        
         return $theUser;
     }
 

@@ -61,7 +61,7 @@ class User implements UserInterface
     /**
      * @var array
      * @ORM\Column(type="simple_array", length=200)
-     * @Serializer\Exclude()
+     * @Serializer\Groups({"Default", "Deserialize"})
      */
     private $roles;
 
