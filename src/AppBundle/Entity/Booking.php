@@ -54,6 +54,24 @@ class Booking
     private $roomId;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="peopleCount", type="integer")
+     * @Serializer\Groups({"Default", "Deserialize"})
+     * @Serializer\Expose()
+     */
+    private $peopleCount;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="price", type="integer")
+     * @Serializer\Groups({"Default", "Deserialize"})
+     * @Serializer\Expose()
+     */
+    private $price;
+
+    /**
      * @var \DateTime
      * @Assert\Date()
      * @Serializer\Type("DateTime<'Y-m-d'>")
@@ -111,6 +129,38 @@ class Booking
     public function setHotelId(int $hotelId): void
     {
         $this->hotelId = $hotelId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPeopleCount(): int
+    {
+        return $this->peopleCount;
+    }
+
+    /**
+     * @param int $peopleCount
+     */
+    public function setPeopleCount(int $peopleCount): void
+    {
+        $this->peopleCount = $peopleCount;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPrice(): int
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param int $price
+     */
+    public function setPrice(int $price): void
+    {
+        $this->price = $price;
     }
 
     /**
