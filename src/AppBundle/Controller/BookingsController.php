@@ -67,4 +67,13 @@ class BookingsController extends  AbstractController
 
         return $booking;
     }
+
+    /**
+     * @Rest\View()
+     */
+    public function getUserBookingAction($userId){
+
+        $em = $this->getDoctrine()->getRepository('AppBundle:Booking')->findBy(array('userId' => $userId));
+        return $em;
+    }
 }
